@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <title>My Website</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mainpi.css') }}">
@@ -13,14 +14,12 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
   <header>
     <nav class="navbar navbar-expand-lg navbar-light nav bg-light justify-content-between">
       <a class="navbar-brand" href="{{ url_for('index') }}">S.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="content">
         <ul class="nav nav-fill nav-tabs">
           <li class="nav-item">
@@ -48,6 +47,40 @@
       </div>
     </nav>
   </header>
+
+  <div class="container-fluid" style="padding:20px;">
+    {% if data %}
+    {% for title, poem in data %}
+    <div class="card-columns" style="display:inline-block;">
+      <div class="card-body">
+      <div class="card">
+    <button type="button" class="btn" data-toggle="modal" data-target="#poemContent{{title}}" style="color:black;">
+            {{ title }}
+    </button>
+    </div>
+    </div>
+    </div>
+    <div class="modal fade" id="poemContent{{title}}" tabindex="-1" role="dialog" aria-labelledby="poemTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="poemTitle{{title}}">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <pre>{{ poem }}</pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
 </body>
 
 </html>

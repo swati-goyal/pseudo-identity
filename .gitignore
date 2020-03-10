@@ -1,3 +1,7 @@
 idea/*
 venv/*
 .idea/*
+*.pyc
+flask_session/*
+util/*
+.git

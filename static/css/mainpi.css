@@ -1,0 +1,64 @@
+body {
+  background: #7A5ABA;
+  font-family: Open Sans, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, .post-qoute blockquote, .search-results, .menu, .menu .nav-search form input, .menu-icon .title {
+  font-family: Lato, Arial, sans-serif;
+}
+
+#bg {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-color: pink;
+}
+
+a, a:active, cite {
+  color: #315f7a;
+}
+
+.post-link .link {
+  background: #315f7a;
+}
+
+.top-bar {
+  background: #fff;
+}
+
+.menu-close {
+  background: #fff;
+}
+
+.top-bar .top-title h1 a, .menu-icon .title {
+  color: #222;
+}
+
+.menu-icon span, .menu-icon span:before, .menu-icon span:after {
+  background-color: #222;
+}
+
+.grid article.logo h1 a, .grid article.logo h2 {
+  color: #FFFFFF;
+}
+
+.pace .pace-progress {
+  background: #222;
+}
+
+.post-answer .question img {
+  border-radius: 0px;
+  width: 100%;
+  max-width: none;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
